@@ -1,11 +1,6 @@
 <h1 class="page-header"> available Books</h1>
 <% @books.each do |book| %>
-<h2><%= book.title %> </h2>
-<div class="jumbotron">
-  <%= book.description %>
-    <br>
-  <div class="badge">
-    <%= book.author %>
-  </div>
-</div>
-<%end%>
+<h2><%= link_to book.title,book_path(book) %> </h2>
+
+<%  end %>
+<%= link_to 'Add Book',new_book_path,{:class=>'btn btn-info'} %>
