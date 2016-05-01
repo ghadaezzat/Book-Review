@@ -1,6 +1,9 @@
-<h1 class="page-header"> available Books</h1>
-<% @books.each do |book| %>
-<h2><%= link_to book.title,book_path(book) %> </h2>
-
-<%  end %>
-
+<h1 class="page-header"> Available Books <%= params[:category] %></h1>
+<% if @books.count==0 %>
+<h2><%= "there are no books in this category!" %></h2>
+<%else%>
+  <% @books.each do |book| %>
+    <h2><%= link_to book.title,book_path(book) %> </h2>
+    <%= image_tag book.book_img.url( :book_index) %>
+  <%  end %>
+<% end %>

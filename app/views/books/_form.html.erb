@@ -1,6 +1,7 @@
 
 <%= simple_form_for @book do |f| %>
   <%= f.input :title,label: "book title" %>
+  <%= f.file_field :book_img %>
   <%= f.input :description ,label: "description" %>
   <%= f.input :author,label: "author name" %>
   <%=  select_tag(:category_id, options_for_select(@categories), :prompt=>"select category", class: "selectpicker show-menu-arrow btn-lg btn-default") %>
