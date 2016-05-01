@@ -3,10 +3,23 @@
 <h3><%= @book.category.name %></h3>
 
 <p><%= @book.description %></p>
+<h3 class="info">comments:</h3>
+<p><%= render @book.reviews %><p>
 <%=  link_to "back",root_path %>
 <% if user_signed_in? %>
+          <%= link_to "Add review", new_book_review_path(@book) %>
+
   <% if @book.user_id == current_user.id %>
       <%= link_to "Edit",edit_book_path(@book) %>
       <%= link_to "Delete", book_path(@book) ,method: :delete ,data: { confirm: "Are you sure?"}%>
   <% end %>
 <% end %>
+    <script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>

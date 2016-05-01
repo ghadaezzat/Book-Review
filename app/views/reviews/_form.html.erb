@@ -1,0 +1,14 @@
+
+<%= simple_form_for ([ @book, @book.reviews.new ]) do |f| %>
+<div id="rating-form">
+    <label>rating:</label>
+</div>
+  <%= f.input :comment %>
+  <%= f.button :submit  %>
+<% end %>
+<script>
+	$('#rating-form').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+</script>

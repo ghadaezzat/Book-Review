@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'ratyrate', '~> 1.2.2.alpha'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'devise', '~> 4.0', '>= 4.0.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
