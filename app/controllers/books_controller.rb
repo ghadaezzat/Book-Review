@@ -8,11 +8,13 @@ class BooksController < ApplicationController
   end
   
   def new
-    @book=Book.new
+    @book=current_user.books.new
+    @categories=Category.all.map{ |c| [c.name,c.id]}
   end
   
   def create
-    @book=Book.new(book_params)
+    @book=current_user.books.new(book_params)
+    @book.category_id=params[:category_id]
     if @book.save
       redirect_to root_path
     else
